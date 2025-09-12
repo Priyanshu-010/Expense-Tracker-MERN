@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LogOut, PlusCircle, Wallet } from "lucide-react";
 import AuthContext from "../AuthContext";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
@@ -9,6 +10,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
+    toast.success("Logged out successfully");
     navigate("/login");
   };
 
