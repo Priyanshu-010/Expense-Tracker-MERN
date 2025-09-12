@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../AuthContext";
 import { Wallet } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { register } = useContext(AuthContext);
@@ -11,9 +12,15 @@ const Register = () => {
   const [password, setPassword] = useState("");
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    await register(email, password);
-    navigate("/");
+    try {
+      e.preventDefault();
+      await register(email, password);
+      toast.success("Registration successful!");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      toast.error("Registration failed. Please try again.");
+    }
   };
 
   return (

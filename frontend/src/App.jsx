@@ -7,6 +7,7 @@ import EditTransaction from "./pages/EditTransaction";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AuthContext from "./AuthContext";
+import { Toaster } from "react-hot-toast";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useContext(AuthContext);
@@ -50,6 +51,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Toaster position="top-right" />
     </div>
   );
 }

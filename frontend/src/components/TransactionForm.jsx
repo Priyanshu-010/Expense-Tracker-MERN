@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import API from '../api';
+import toast from 'react-hot-toast';
 
 const categories = ['Income', 'Food', 'Transport', 'Entertainment', 'Utilities', 'Other'];
 
@@ -49,12 +50,15 @@ const TransactionForm = ({ isEdit = false }) => {
     try {
       if (isEdit) {
         await API.put(`/transactions/${id}`, payload);
+        toast.success('Transaction updated successfully!');
       } else {
         await API.post('/transactions', payload);
+        toast.success('Transaction added successfully!');
       }
       navigate('/');
     } catch (err) {
       console.error("Failed to save transaction", err);
+      toast.error('Failed to save transaction. Please try again.');
     }
   };
 

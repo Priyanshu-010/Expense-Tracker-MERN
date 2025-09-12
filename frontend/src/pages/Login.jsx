@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../AuthContext";
 import { Wallet } from "lucide-react";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -11,9 +12,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    await login(email, password);
-    navigate("/");
+    try {
+      e.preventDefault();
+      await login(email, password);
+      toast.success("Login successful!");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      toast.error("Login failed. Please check your credentials and try again.");
+    }
   };
 
   return (

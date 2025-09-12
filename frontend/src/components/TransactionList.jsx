@@ -2,15 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Trash2, FilePenLine } from "lucide-react";
 import API from "../api";
+import toast from "react-hot-toast";
 
 const TransactionList = ({ transactions, onDelete }) => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this transaction?")) {
       try {
         await API.delete(`/transactions/${id}`);
+        toast.success("Transaction deleted successfully!");
         onDelete(); // This will re-fetch transactions
       } catch (err) {
         console.error("Failed to delete transaction:", err);
+        toast.error("Failed to delete transaction. Please try again.");
       }
     }
   };

@@ -24,7 +24,12 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     } catch (err) {
       console.error(err);
-      // You might want to handle login errors here, e.g., show a message to the user
+      if (err.response && err.response.data && err.response.data.msg) {
+        throw new Error(err.response.data.msg);
+      } else {
+        throw new Error('Login failed. Please try again.');
+      }
+
     }
   };
 
@@ -36,7 +41,11 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     } catch (err) {
       console.error(err);
-      // Handle registration errors
+      if (err.response && err.response.data && err.response.data.msg) {
+        throw new Error(err.response.data.msg);
+      } else {
+        throw new Error('Registration failed. Please try again.');
+      }
     }
   };
 
