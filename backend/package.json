@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm install --prefix backend",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
