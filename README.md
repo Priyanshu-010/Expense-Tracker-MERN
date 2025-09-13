@@ -41,7 +41,7 @@
 
 ## 🛠️ Tech Stack
 
-### 🔧 Frontend
+### 🖥️ Frontend
 - React.js (Vite)
 - Tailwind CSS
 - Axios
@@ -50,7 +50,7 @@
 - React Hot Toast
 - Chart.js & React Chart.js 2
 
-### 🖥️ Backend
+### 🔧 Backend
 - Node.js
 - Express.js
 - MongoDB with Mongoose
@@ -61,7 +61,8 @@
 
 ## 🌐 Live Demo
 
-> 🚀 [FinTrack Live](https://your-live-demo-link.com)  
+> 🚀 [FinTrack Live](https://expense-tracker-mern-eight-nu.vercel.app/)  
+> backend (https://expense-tracker-mern-backend-2.onrender.com)
 > *(Hosted using Render / Vercel — may take a few seconds to wake up if idle)*
 
 ---
@@ -103,6 +104,7 @@ npm run dev
 ---
 
 👤 About the Developer
+
 Priyanshu Rai
 📧 priyanshurai2772@gmail.com
 🔗 LinkedIn: (https://www.linkedin.com/in/priyanshuraidev/)
