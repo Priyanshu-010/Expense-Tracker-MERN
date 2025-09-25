@@ -10,7 +10,7 @@ const TransactionList = ({ transactions, onDelete }) => {
       try {
         await API.delete(`/transactions/${id}`);
         toast.success("Transaction deleted successfully!");
-        onDelete(); // This will re-fetch transactions
+        onDelete();
       } catch (err) {
         console.error("Failed to delete transaction:", err);
         toast.error("Failed to delete transaction. Please try again.");

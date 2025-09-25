@@ -25,13 +25,12 @@ const TransactionForm = ({ isEdit = false }) => {
           setFormData({
             title: transactionData.title,
             amount: transactionData.amount,
-            // Format the date correctly for the input[type=date]
             date: new Date(transactionData.date).toISOString().split('T')[0],
             category: transactionData.category,
           });
         } catch (err) {
           console.error("Failed to fetch transaction", err);
-          // Optionally navigate away or show an error
+          toast.error('Failed to load transaction data. Please try again.');
           navigate('/');
         }
       };
@@ -45,7 +44,7 @@ const TransactionForm = ({ isEdit = false }) => {
     e.preventDefault();
     const payload = {
         ...formData,
-        amount: parseFloat(formData.amount) // Ensure amount is a number
+        amount: parseFloat(formData.amount)
     };
     try {
       if (isEdit) {

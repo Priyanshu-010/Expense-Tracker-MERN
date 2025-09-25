@@ -5,12 +5,12 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const categoryColors = {
-  Income: '#10B981',       // Emerald 500
-  Food: '#F59E0B',         // Amber 500
-  Transport: '#3B82F6',    // Blue 500
-  Entertainment: '#8B5CF6',// Violet 500
-  Utilities: '#EF4444',    // Red 500
-  Other: '#6B7280',        // Slate 500
+  Income: '#10B981',
+  Food: '#F59E0B',
+  Transport: '#3B82F6',
+  Entertainment: '#8B5CF6',
+  Utilities: '#EF4444',
+  Other: '#6B7280',
 };
 
 const CategoryChart = ({ transactions }) => {
